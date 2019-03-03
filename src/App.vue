@@ -13,4 +13,5 @@ export default {
 <style lang="stylus">
   #app
     height 100vh
+    position: relative
 </style>

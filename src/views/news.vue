@@ -1,13 +1,17 @@
 <template>
-    <div id="task">
+    <div id="news">
 
     </div>
 </template>
 
 <script>
-    export default {
-        name: "task"
-    }
+
+  export default {
+    name: "news",
+    components: {
+
+    },
+  }
 </script>
 
 <style lang="stylus">

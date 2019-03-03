@@ -9,6 +9,9 @@
   import NavFooter from '../components/NavFooter'
   export default {
     name: "index",
+    data() {
+      return {}
+    },
     components: {
       NavFooter
     }

@@ -1,18 +1,18 @@
 <template>
     <div id="nav_footer">
-      <div class="item">
+      <div class="item" :class="[(flag==1)?'selected':'']" @click="task">
         <span class="el-icon-date"></span>
         <span>首页</span>
       </div>
-      <div class="item">
+      <div class="item" :class="[(flag==2)?'selected':'']" @click="news">
         <span class="el-icon-view"></span>
-        <span>咨询</span>
+        <span>咨讯</span>
       </div>
-      <div class="item">
+      <div class="item" :class="[(flag==3)?'selected':'']" @click="activity">
         <span class="el-icon-share"></span>
         <span>活动</span>
       </div>
-      <div class="item">
+      <div class="item" :class="[(flag==4)?'selected':'']" @click="home">
         <span class="el-icon-setting"></span>
         <span>我的</span>
       </div>
@@ -20,15 +20,38 @@
 </template>
 
 <script>
-    export default {
-        name: "NavFooter"
-    }
+  export default {
+    name: "NavFooter",
+    data() {
+      return {
+        flag: 1
+      }
+    },
+    methods: {
+      task() {
+        this.$router.push({path: '/'})
+        this.flag = 1
+      },
+      news() {
+        this.$router.push({path: '/news'})
+        this.flag = 2
+      },
+      activity() {
+        this.$router.push({path: '/activity'})
+        this.flag = 3
+      },
+      home() {
+        this.$router.push({path: '/home'})
+        this.flag = 4
+      },
+    },
+  }
 </script>
 
 <style lang="stylus">
 
   #nav_footer
-    position: fixed
+    position: absolute
     bottom: 0
     width: 100%
     height 3.5rem
@@ -43,6 +66,8 @@
         font-size: 1.5rem
       span
         display: block
+    .selected
+      color: #659ce6;
 
 
 </style>

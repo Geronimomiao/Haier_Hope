@@ -2,16 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import index from '@/draft/index'
-import task from '@/views/task'
-import home from '@/views/home'
-import news from '@/views/news'
-import activity from '@/views/activity'
+import task from '@/views/index/task'
+import home from '@/views/index/home'
+import news from '@/views/index/news'
+import activity from '@/views/index/activity'
 
 import hform from '@/draft/hform'
-import formTech from '@/views/formTech'
-import formRight from '@/views/formRight'
-import formReq from '@/views/fromReq'
+import formTech from '@/views/form/formTech'
+import formRight from '@/views/form/formRight'
+import formReq from '@/views/form/fromReq'
 
+import identity from '@/draft/identity'
+import identityEnterprise from '@/views/identity/identityEnterprise'
+import identityInstitution from '@/views/identity/identityInstitution'
+import identityTalent from '@/views/identity/identityTalent'
 
 Vue.use(Router)
 
@@ -64,7 +68,29 @@ export default new Router({
           name: 'formReq',
           component: formReq
         },
+          ]
+        },
+    {
+      path: '/identity',
+      name: 'identity',
+      component: identity,
+      children: [
+        {
+          path: '/identity/identityEnterprise',
+          name: 'identityEnterprise',
+          component: identityEnterprise
+        },
+        {
+          path: '/identity/identityInstitution',
+          name: 'identityInstitution',
+          component: identityInstitution
+        },
+        {
+          path: '/identity/identityTalent',
+          name: 'identityTalent',
+          component: identityTalent
+        },
       ]
-    }
+    },
   ]
 })

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import TaskTopHeader from '../components/TaskTopHeader'
-  import TaskHeader from '../components/TaskHeader'
+  import TaskTopHeader from '../../components/TaskTopHeader'
+  import TaskHeader from '../../components/TaskHeader'
   export default {
     name: "task",
     components: {

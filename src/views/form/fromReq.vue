@@ -1,14 +1,14 @@
 <template>
-  <div id="form_tech">
+  <div id="form_req">
     <back-header>
-      <span slot="title">发布技术</span>
+      <span slot="title">发布需求</span>
     </back-header>
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="标题:">
-        <el-input v-model="form.name" placeholder="请选择活动区域"></el-input>
+        <el-input v-model="form.name" placeholder="请输入标题"></el-input>
       </el-form-item>
-      <el-form-item label="技术方向:">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
+      <el-form-item label="需求领域:">
+        <el-select v-model="form.region" placeholder="请选择需求领域">
           <el-option label="减震降噪" value="减震降噪"></el-option>
           <el-option label="新材料应用" value="新材料应用"></el-option>
           <el-option label="传感器" value="传感器"></el-option>
@@ -28,27 +28,16 @@
       <el-form-item label="技术标签:">
         <el-input v-model="form.name" placeholder="请选择活动区域"></el-input>
       </el-form-item>
-      <el-form-item label="资金来源:">
-        <el-select v-model="form.region" placeholder="请选择资金来源">
-          <el-option label="科研经费" value="科研经费"></el-option>
-          <el-option label="政府资金" value="政府资金"></el-option>
-          <el-option label="企业资金" value="企业资金"></el-option>
-          <el-option label="风险投资" value="风险投资"></el-option>
-          <el-option label="个人自筹" value="个人自筹"></el-option>
+      <el-form-item label="需求类型:">
+        <el-select v-model="form.region" placeholder="请选择需求类型">
+          <el-option label="科技需求" value="科技需求"></el-option>
+          <el-option label="营销需求" value="营销需求"></el-option>
+          <el-option label="创意需求" value="创意需求"></el-option>
+          <el-option label="资金需求" value="资金需求"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="交付形式:">
-        <el-select v-model="form.region" placeholder="请选择交付形式">
-          <el-option label="产品" value="产品"></el-option>
-          <el-option label="工艺" value="工艺"></el-option>
-          <el-option label="整体方案" value="整体方案"></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item label="专利状态:">
-        <el-select v-model="form.region" placeholder="请选择专利状态">
-          <el-option label="有" value="有"></el-option>
-          <el-option label="没有" value="没有"></el-option>
-        </el-select>
+      <el-form-item label="所属区域:">
+        <el-input v-model="form.name" placeholder="请输入所属区域"></el-input>
       </el-form-item>
       <el-form-item label="合作方式:">
         <el-select v-model="form.region" placeholder="请选择合作方式">
@@ -60,16 +49,39 @@
         </el-select>
       </el-form-item>
       <div class="tarea">
-        <el-form-item label="活动形式:">
-          <el-input type="textarea"></el-input>
+        <el-form-item label="需求描述:">
+          <el-input type="textarea" placeholder="请描述您的具体需求，目前主要的技术问题，需求场景等"></el-input>
         </el-form-item>
       </div>
+      <div class="tarea">
+        <el-form-item label="预期效果:">
+          <el-input type="textarea" placeholder="请描述您的预期效果"></el-input>
+        </el-form-item>
+      </div>
+      <el-form-item label="附件">
+        <el-input v-model="form.name" placeholder="请选择要上传的附件"></el-input>
+      </el-form-item>
+      <el-form-item label="图片">
+        <el-input v-model="form.name" placeholder="请选择要上传的图片"></el-input>
+      </el-form-item>
+      <el-form-item label="联系人">
+        <el-input v-model="form.name" placeholder="请输入联系人姓名"></el-input>
+      </el-form-item>
+      <el-form-item label="邮箱">
+        <el-input v-model="form.name" placeholder="请输入联系人邮箱"></el-input>
+      </el-form-item>
+      <el-form-item label="联系电话">
+        <el-input v-model="form.name" placeholder="请输入联系人联系方式"></el-input>
+      </el-form-item>
     </el-form>
+    <div class="form-footer">
+      提交
+    </div>
   </div>
 </template>
 
 <script>
-  import BackHeader from '../components/BackHeader'
+  import BackHeader from '../../components/BackHeader'
 
   export default {
     name: "formTech",
@@ -89,9 +101,9 @@
 </script>
 
 <style lang="stylus">
-  @import "../common/stylus/border.styl"
+  @import "../../common/stylus/border.styl"
 
-  #form_tech
+  #form_req
     .el-input__inner
       border-style: none
 
@@ -103,9 +115,21 @@
       width: 100%
 
     .tarea
+      .el-textarea
+        height: 5rem
+
       .el-form-item__content
         margin-left: 0 !important
+
       .el-textarea__inner
         border: 0
+
+    .form-footer
+      height: 2.5rem
+      line-height: 2.5rem
+      text-align: center
+      width: 100%
+      bottom: 0
+      color #73A23A
 
 </style>

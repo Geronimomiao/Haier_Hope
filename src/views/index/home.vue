@@ -11,7 +11,7 @@
         <div class="iconfont icontags"></div>
         <div class="text">签到</div>
       </div>
-      <div class="item">
+      <div class="item" @click="integral">
         <div class="iconfont icondingyue"></div>
         <div class="text">积分</div>
       </div>
@@ -70,6 +70,9 @@
     methods: {
       identity() {
         this.$router.push({path: '/identity'})
+      },
+      integral() {
+        this.$router.push({path: '/service/integral'})
       }
     }
   }

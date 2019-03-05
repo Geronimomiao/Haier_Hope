@@ -17,6 +17,9 @@ import identityEnterprise from '@/views/identity/identityEnterprise'
 import identityInstitution from '@/views/identity/identityInstitution'
 import identityTalent from '@/views/identity/identityTalent'
 
+import service from '@/draft/service'
+import integral from '@/views/service/integral'
+
 Vue.use(Router)
 
 export default new Router({
@@ -89,6 +92,18 @@ export default new Router({
           path: '/identity/identityTalent',
           name: 'identityTalent',
           component: identityTalent
+        },
+      ]
+    },
+    {
+      path: '/service',
+      name: 'service',
+      component: service,
+      children: [
+        {
+          path: '/service/integral',
+          name: 'integral',
+          component: integral
         },
       ]
     },

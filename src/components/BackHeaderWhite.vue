@@ -1,15 +1,7 @@
 <template>
   <div id="back_header">
-    <el-row>
-      <el-col :span="2">
-        <i class="el-icon-arrow-left" @click="goback"></i>
-      </el-col>
-      <el-col :span="22">
-        <div class="title">
-          <slot name="title"></slot>
-        </div>
-      </el-col>
-    </el-row>
+    <i class="el-icon-arrow-left" @click="goback"></i>
+    <slot name="title"></slot>
   </div>
 </template>
 
@@ -30,12 +22,16 @@
 <style lang="stylus">
   #back_header
     height 2.5rem
+    background-color: #fff
+    line-height: 2.5rem
+    text-align: center
+    position: relative
     i
-      font-size 2rem
+      font-size: 1.3rem
       line-height: 2.5rem
-    .title
-      line-height: 2.5rem
-      text-align: center
-      font-size: 1.2rem
+      position: absolute
+      left: 1.2rem
+
+
 
 </style>

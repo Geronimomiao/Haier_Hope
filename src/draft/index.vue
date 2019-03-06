@@ -19,5 +19,6 @@
 </script>
 
 <style lang="stylus">
-
+  #index
+    height: 100vh
 </style>

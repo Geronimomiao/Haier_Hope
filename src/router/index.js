@@ -19,6 +19,9 @@ import identityTalent from '@/views/identity/identityTalent'
 
 import service from '@/draft/service'
 import integral from '@/views/service/integral'
+import wallet from '@/views/service/wallet'
+
+import newsDetail from '@/views/news/detail'
 
 Vue.use(Router)
 
@@ -105,7 +108,17 @@ export default new Router({
           name: 'integral',
           component: integral
         },
+        {
+          path: '/service/wallet',
+          name: 'wallet',
+          component: wallet
+        },
       ]
+    },
+    {
+      path: '/news/detail',
+      name: 'newsDetail',
+      component: newsDetail,
     },
   ]
 })

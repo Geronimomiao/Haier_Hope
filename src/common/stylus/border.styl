@@ -9,6 +9,7 @@ border-1px($color)
     width: 96%
     border-top: 1px solid $color
 
+
 border-10px($color)
   position: relative
   &:after
@@ -18,3 +19,13 @@ border-10px($color)
     content: ''
     width: 100%
     border-top: 10px solid $color
+
+border-5px($color)
+  position: relative
+  &:after
+    display: block
+    position: absolute
+    bottom: 0
+    content: ''
+    width: 100%
+    border-top: 5px solid $color

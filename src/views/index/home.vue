@@ -15,7 +15,7 @@
         <div class="iconfont icondingyue"></div>
         <div class="text">积分</div>
       </div>
-      <div class="item">
+      <div class="item" @click="wallet">
         <div class="iconfont iconqianbao"></div>
         <div class="text">钱包</div>
       </div>
@@ -73,6 +73,9 @@
       },
       integral() {
         this.$router.push({path: '/service/integral'})
+      },
+      wallet() {
+        this.$router.push({path: '/service/wallet'})
       }
     }
   }

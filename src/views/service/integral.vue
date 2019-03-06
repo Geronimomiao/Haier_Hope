@@ -56,14 +56,14 @@
 <style lang="stylus">
   #integral
     .banner
-      margin-top: 0.8rem
       height: 8rem
       background-color: #648FAF
       border-radius: 0.5rem
       display: flex
       justify-content: center
       padding: 0.5rem 0
-
+      margin: 0 0.2rem
+      margin-top: 0.8rem
       .item
         width: 50%
         background-color: #fff
@@ -115,4 +115,5 @@
         .item
           flex 1
           padding-top: 0.8rem
+          line-height: 1.2rem
 </style>

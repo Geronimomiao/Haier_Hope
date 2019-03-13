@@ -5,13 +5,19 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App'
+  }
 </script>
 
 <style lang="stylus">
+  @import "../node_modules/animate.css/animate.css"
   #app
     height 100vh
     position: relative
+
+
+  .el-notification
+    @media screen and (max-width: 370px)
+      width: 290px
 </style>

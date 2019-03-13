@@ -1,6 +1,12 @@
 <template>
   <div id="index">
-    <router-view></router-view>
+    <transition  mode="out-in"
+                 enter-active-class="animated fadeIn faster"
+                 leave-active-class="animated fadeOut faster">
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
+    </transition>
     <nav-footer></nav-footer>
   </div>
 </template>

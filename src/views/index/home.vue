@@ -1,15 +1,16 @@
 <template>
   <div id="home">
     <div class="user-header">我的</div>
-    <div class="user-info">
+    <div class="user-info" @click="setting">
       <div class="avatar"></div>
       <span class="nick-name">内测人员</span>
       <i class="el-icon-arrow-right icon-arrow"></i>
     </div>
     <div class="user-msg">
-      <div class="item">
+      <div class="item"  @click="change">
         <div class="iconfont icontags"></div>
-        <div class="text">签到</div>
+        <div class="text" v-if="record">签到</div>
+        <div class="text" v-else>已签</div>
       </div>
       <div class="item" @click="integral">
         <div class="iconfont icondingyue"></div>
@@ -31,7 +32,7 @@
           <div class="iconfont iconzaixianzixun"></div>
           <div class="text">我的咨讯</div>
         </div>
-        <div class="item">
+        <div class="item" @click="attention">
           <div class="iconfont iconteam"></div>
           <div class="text">我的关注</div>
         </div>
@@ -41,7 +42,7 @@
           <div class="iconfont iconshijian"></div>
           <div class="text">我的活动</div>
         </div>
-        <div class="item">
+        <div class="item" @click="message">
           <div class="iconfont iconliuyan"></div>
           <div class="text">我的消息</div>
         </div>
@@ -56,7 +57,7 @@
         <span class="func">身份认证</span>
         <i class="el-icon-arrow-right icon-arrow"></i>
       </div>
-      <div class="item">
+      <div class="item" @click="setting">
         <span class="func">系统设置</span>
         <i class="el-icon-arrow-right icon-arrow"></i>
       </div>
@@ -65,8 +66,12 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
   export default {
     name: "home",
+    computed: {
+      ...mapState(['record'])
+    },
     methods: {
       identity() {
         this.$router.push({path: '/identity'})
@@ -76,7 +81,20 @@
       },
       wallet() {
         this.$router.push({path: '/service/wallet'})
-      }
+      },
+      setting() {
+        this.$router.push({path: '/service/setting'})
+      },
+      message() {
+        this.$router.push({path: '/service/message'})
+      },
+      attention() {
+        this.$router.push({path: '/service/attention'})
+      },
+      change() {
+        if (!this.record) { return }
+        this.$store.commit('increaseScore')
+      },
     }
   }
 </script>
@@ -160,6 +178,8 @@
         line-height: 3rem
         position: relative
         border-1px(rgba(7, 17, 27, 0.1))
+        &:nth-last-child(1)
+          border-1px(#fff)
         .func
           padding-top: 0.8rem
           padding-left: 0.8rem

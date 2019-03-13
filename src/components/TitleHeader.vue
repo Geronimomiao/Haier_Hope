@@ -1,14 +1,14 @@
 <template>
   <div id="title_header">
     <el-row>
-      <el-col :span="2">
+      <el-col :span="2" :offset="1">
         <i class="el-icon-arrow-left" @click="goback"></i>
       </el-col>
-      <el-col :span="2" :offset="18">
-        <i class="el-icon-arrow-left"></i>
+      <el-col :span="2" :offset="16">
+        <i class="el-icon-star-off"></i>
       </el-col>
       <el-col :span="2">
-        <i class="el-icon-arrow-left"></i>
+        <i class="iconfont iconfenxiang"></i>
       </el-col>
     </el-row>
   </div>
@@ -29,12 +29,17 @@
 </script>
 
 <style lang="stylus">
-  #back_header
+  @import "../common/stylus/border.styl"
+
+  #title_header
     height 2.5rem
-    color #FBFBFC
-    background-color #6E7483
+    color #878787
+    border-1px(#878787)
+    z-index 50
+    background-color: #fff
+    margin-bottom: 0.2rem
     i
-      font-size 2rem
+      font-size 1.5rem
       line-height: 2.5rem
 
 

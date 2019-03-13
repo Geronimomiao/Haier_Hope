@@ -16,13 +16,44 @@
         <li @click="type=8" :class="[(type==8)?'hover':'']">技术新闻</li>
       </ul>
     </div>
-    <div class="msg">
-
+    <div class="msg" ref="msg">
+      <div class="msg-content">
+        <div class="item" v-for="item in data" @click="goDetail(item.id)">
+          <div class="container">
+            <el-row :gutter="20">
+              <el-col :span="12" :offset="2">
+                <div class="item-title">{{item.newsName}}</div>
+              </el-col>
+              <el-col :span="8" :offset="1">
+                <div class="item-img">
+                  <img :src="item.newsImg" alt="">
+                </div>
+              </el-col>
+            </el-row>
+            <div class="remarks">
+              {{item.remarks}}
+            </div>
+            <el-row :gutter="20">
+              <el-col :span="12" :offset="2">
+                <div class="item-time">
+                  {{item.updateDate}}
+                </div>
+              </el-col>
+              <el-col :span="6" :offset="3">
+                <div class="tag">
+                  {{item.newsTrade}}
+                </div>
+              </el-col>
+            </el-row>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import BScroll from 'better-scroll'
   import TopSearch from '../../components/TopSearch'
 
   export default {
@@ -46,6 +77,21 @@
           console.log(res.data)
           this.data = res.data.list
         })
+        this.show()
+      },
+      show() {
+        let scroll = new BScroll(this.$refs.msg, {
+          click: true,
+          scrollY: true,
+        })
+      },
+      goDetail(id){
+        this.$router.push({
+          name: 'newsDetail',
+          params: {
+            id: id
+          }
+        })
       }
     }
   }
@@ -55,17 +101,21 @@
   @import "../../common/stylus/border.styl"
   #news
     .wrapper
-      margin-top: 0.3rem
+      z-index 50
+      padding-top: 0.3rem
       border-5px(#EEEEEE)
+      background-color: #fff
       .content::-webkit-scrollbar
         width: 0 !important
         height: 0 !important
+
       .content
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-between;
         overflow: auto;
         padding-bottom: 0.6rem
+
         li
           flex: 1 0 auto;
           padding: 0 5px;
@@ -74,9 +124,44 @@
 
           &.hover
             color #408ED0
+
             &:after
               display: block
               content: ''
               width: 100%
               border-top: 2px solid #408ED0
+
+    .msg
+      position: fixed
+      bottom: 3.5rem
+      top: 6.5rem
+      z-index 30
+      width: 100%
+      .item
+        border-bottom: 5px solid #eee
+        .container
+          margin: 0.6rem 0
+          .remarks
+            margin: 0.6rem 0
+            width: 80%
+            margin-left: 10%
+            font-size: 0.5rem
+            color #8F8F8F
+            text-align: center
+            margin-top: 0
+          .item-title
+            font-size: 1rem
+            margin-top: 0.3rem
+          .item-img
+            img
+              display: inline-block
+              width: 6rem
+              height: 4rem
+              border-radius 1rem
+          .item-time, .tag
+            font-size: 0.6rem
+            color: #8D8D8D
+          .tag
+            background-color: #fff
+            padding: 0
 </style>

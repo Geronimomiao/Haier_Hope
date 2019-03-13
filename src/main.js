@@ -9,14 +9,19 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueAxios from 'vue-axios'
 import axios from 'axios'
 
+import createStore from './vuex/store'
+
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAxios,axios);
 /* eslint-disable no-new */
 
+const store = createStore()
+
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

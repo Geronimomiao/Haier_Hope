@@ -57,6 +57,7 @@
     height 3.5rem
     background-color #f5f5f5
     display flex
+    z-index 100
     .item
       flex 1
       text-align: center

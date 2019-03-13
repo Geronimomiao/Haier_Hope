@@ -6,6 +6,11 @@ import task from '@/views/index/task'
 import home from '@/views/index/home'
 import news from '@/views/index/news'
 import activity from '@/views/index/activity'
+import demand from '@/views/index/demand'
+import genius from '@/views/index/genius'
+import iservice from '@/views/index/service'
+import technology from '@/views/index/technology'
+
 
 import hform from '@/draft/hform'
 import formTech from '@/views/form/formTech'
@@ -20,8 +25,12 @@ import identityTalent from '@/views/identity/identityTalent'
 import service from '@/draft/service'
 import integral from '@/views/service/integral'
 import wallet from '@/views/service/wallet'
+import setting from '@/views/service/setting'
+import message from '@/views/service/message'
+import attention from '@/views/service/attention'
 
 import newsDetail from '@/views/news/detail'
+
 
 Vue.use(Router)
 
@@ -51,6 +60,26 @@ export default new Router({
           path: '/activity',
           name: 'activity',
           component: activity
+        },
+        {
+          path: '/demand',
+          name: 'demand',
+          component: demand
+        },
+        {
+          path: '/genius',
+          name: 'genius',
+          component: genius
+        },
+        {
+          path: '/service',
+          name: 'service',
+          component: iservice
+        },
+        {
+          path: '/technology',
+          name: 'technology',
+          component: technology
         },
       ]
     },
@@ -112,6 +141,21 @@ export default new Router({
           path: '/service/wallet',
           name: 'wallet',
           component: wallet
+        },
+        {
+          path: '/service/setting',
+          name: 'setting',
+          component: setting
+        },
+        {
+          path: '/service/message',
+          name: 'message',
+          component: message
+        },
+        {
+          path: '/service/attention',
+          name: 'attention',
+          component: attention
         },
       ]
     },

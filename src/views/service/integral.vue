@@ -5,7 +5,7 @@
     </back-header-white>
     <div class="banner">
       <div class="item">
-        <div class="text">总积分: 30</div>
+        <div class="text">总积分: {{ score }}</div>
       </div>
     </div>
     <div class="exchange">
@@ -37,6 +37,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+
   import BackHeaderWhite from '../../components/BackHeaderWhite'
   import SideTitle from '../../components/SideTitle'
   export default {
@@ -45,6 +47,9 @@
       return {
         name: ''
       }
+    },
+    computed: {
+      ...mapState(['score'])
     },
     components: {
       BackHeaderWhite,

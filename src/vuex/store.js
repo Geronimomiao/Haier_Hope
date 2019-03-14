@@ -10,6 +10,7 @@ export default  () => {
       flag: 0,
       score: 30,
       record: true,
+      footerFlag: 1
     },
     mutations: {
       updateUserInfo(state, user) {
@@ -22,6 +23,9 @@ export default  () => {
         state.score += 5
         state.record = false
       },
+      updateFooterFlag(state, flag) {
+        state.footerFlag = flag
+      }
     }
   })
 }

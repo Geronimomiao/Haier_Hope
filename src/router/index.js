@@ -29,7 +29,8 @@ import setting from '@/views/service/setting'
 import message from '@/views/service/message'
 import attention from '@/views/service/attention'
 
-import newsDetail from '@/views/news/detail'
+import newsDetail from '@/views/detail/newDetail'
+import activityDetail from '@/views/detail/activeDetail'
 
 
 Vue.use(Router)
@@ -47,7 +48,7 @@ export default new Router({
           component: task
         },
         {
-          path: '/news',
+          path: '/detail',
           name: 'news',
           component: news
         },
@@ -163,6 +164,11 @@ export default new Router({
       path: '/news/detail',
       name: 'newsDetail',
       component: newsDetail,
+    },
+    {
+      path: '/activity/detail',
+      name: 'activityDetail',
+      component: activityDetail,
     },
   ]
 })

@@ -1,18 +1,18 @@
 <template>
     <div id="nav_footer">
-      <div class="item" :class="[(flag==1)?'selected':'']" @click="task">
+      <div class="item" :class="[(footerFlag==1)?'selected':'']" @click="task">
         <span class="el-icon-date"></span>
         <span>首页</span>
       </div>
-      <div class="item" :class="[(flag==2)?'selected':'']" @click="news">
+      <div class="item" :class="[(footerFlag==2)?'selected':'']" @click="news">
         <span class="el-icon-view"></span>
         <span>咨讯</span>
       </div>
-      <div class="item" :class="[(flag==3)?'selected':'']" @click="activity">
+      <div class="item" :class="[(footerFlag==3)?'selected':'']" @click="activity">
         <span class="el-icon-share"></span>
         <span>活动</span>
       </div>
-      <div class="item" :class="[(flag==4)?'selected':'']" @click="home">
+      <div class="item" :class="[(footerFlag==4)?'selected':'']" @click="home">
         <span class="el-icon-setting"></span>
         <span>我的</span>
       </div>
@@ -20,29 +20,29 @@
 </template>
 
 <script>
+  import {mapState} from 'vuex'
   export default {
     name: "NavFooter",
-    data() {
-      return {
-        flag: 1
-      }
+
+    computed: {
+      ...mapState(['footerFlag'])
     },
     methods: {
       task() {
         this.$router.push({path: '/'})
-        this.flag = 1
+        this.$store.commit('updateFooterFlag', 1)
       },
       news() {
-        this.$router.push({path: '/news'})
-        this.flag = 2
+        this.$router.push({path: '/detail'})
+        this.$store.commit('updateFooterFlag', 2)
       },
       activity() {
         this.$router.push({path: '/activity'})
-        this.flag = 3
+        this.$store.commit('updateFooterFlag', 3)
       },
       home() {
         this.$router.push({path: '/home'})
-        this.flag = 4
+        this.$store.commit('updateFooterFlag', 4)
       },
     },
   }

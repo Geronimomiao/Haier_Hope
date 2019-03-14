@@ -37,7 +37,6 @@
     methods: {
       async showData() {
         let id = this.$route.params.id
-        console.log(id)
         await this.axios('/api/hope/a/news/news/listData', {params: {newsId: id}}).then(res => {
           console.log(res.data.list)
           this.data = res.data.list

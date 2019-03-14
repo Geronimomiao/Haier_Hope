@@ -5,15 +5,15 @@
     </top-search>
     <div class="wrapper">
       <ul class="content">
-        <li @click="getHots" :class="[(type==0)?'hover':'']">热门</li>
-        <li @click="type=1" :class="[(type==1)?'hover':'']">行业政策</li>
-        <li @click="type=2" :class="[(type==2)?'hover':'']">扶持政策</li>
-        <li @click="type=3" :class="[(type==3)?'hover':'']">最新政策</li>
-        <li @click="type=4" :class="[(type==4)?'hover':'']">行业热点</li>
-        <li @click="type=5" :class="[(type==5)?'hover':'']">企业案例</li>
-        <li @click="type=6" :class="[(type==6)?'hover':'']">行业新闻</li>
-        <li @click="type=7" :class="[(type==7)?'hover':'']">前沿信息</li>
-        <li @click="type=8" :class="[(type==8)?'hover':'']">技术新闻</li>
+        <li @click="getData(0, '')" :class="[(type==0)?'hover':'']">热门</li>
+        <li @click="getData(1, '行业政策')" :class="[(type==1)?'hover':'']">行业政策</li>
+        <li @click="getData(2, '扶持政策')" :class="[(type==2)?'hover':'']">扶持政策</li>
+        <li @click="getData(3, '最新政策')" :class="[(type==3)?'hover':'']">最新政策</li>
+        <li @click="getData(4, '行业热点')" :class="[(type==4)?'hover':'']">行业热点</li>
+        <li @click="getData(5, '企业案例')" :class="[(type==5)?'hover':'']">企业案例</li>
+        <li @click="getData(6, '行业新闻')" :class="[(type==6)?'hover':'']">行业新闻</li>
+        <li @click="getData(7, '前沿信息')" :class="[(type==7)?'hover':'']">前沿信息</li>
+        <li @click="getData(8, '技术新闻')" :class="[(type==8)?'hover':'']">技术新闻</li>
       </ul>
     </div>
     <div class="msg" ref="msg">
@@ -68,12 +68,12 @@
       }
     },
     mounted() {
-      this.getHots()
+      this.getData(0, '')
     },
     methods: {
-      async getHots() {
-        this.type = 0
-        await this.axios.get('/api/hope/a/news/news/listData').then(res => {
+      async getData(type, value) {
+        this.type = type
+        await this.axios.get('/api/hope/a/news/news/listData',  {params: {newsType: value}}).then(res => {
           console.log(res.data)
           this.data = res.data.list
         })

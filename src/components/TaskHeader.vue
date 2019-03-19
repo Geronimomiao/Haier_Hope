@@ -47,9 +47,14 @@
     height: 5.5rem
     background-color: #f5f5f5
     display: flex
+    position: fixed
+    width: 100%
+    top: 2.7rem
     .item
       text-align: center
       flex 1
+      z-index 50
+      background-color: #f5f5f5
       i
         font-size: 2.3rem
         line-height: 3.7rem

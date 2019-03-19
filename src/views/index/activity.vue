@@ -93,7 +93,7 @@
             id: id
           }
         })
-      }
+      },
     },
     filters: {
       timeFilter(value) {
@@ -155,11 +155,13 @@
           margin-left: 10%
           img
             height: 4rem
-            width: 11rem
+            width: 7rem
             padding: 0.5rem
           .remark
             font-size: 0.8rem
             padding: 0.5rem 0
+            height: 3.5rem
+            overflow hidden
         .msg-footer
           padding: 0.5rem
           .text

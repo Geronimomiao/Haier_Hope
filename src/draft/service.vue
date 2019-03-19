@@ -1,6 +1,8 @@
 <template>
     <div id="service">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </div>
 </template>
 

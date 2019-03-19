@@ -157,7 +157,8 @@
               display: inline-block
               width: 6rem
               height: 4rem
-              border-radius 1rem
+              border-radius 0.5rem
+              margin-bottom: 0.3rem
           .item-time, .tag
             font-size: 0.6rem
             color: #8D8D8D

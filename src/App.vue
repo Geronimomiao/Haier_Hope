@@ -20,4 +20,8 @@
   .el-notification
     @media screen and (max-width: 370px)
       width: 290px
+
+  .el-message
+    min-width: 300px
+    left: 45%
 </style>

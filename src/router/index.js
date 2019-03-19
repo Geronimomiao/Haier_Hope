@@ -31,7 +31,11 @@ import attention from '@/views/service/attention'
 
 import newsDetail from '@/views/detail/newDetail'
 import activityDetail from '@/views/detail/activeDetail'
+import demandDetail from '@/views/detail/demandDetail'
 
+import auth from '@/draft/auth'
+import login from '@/views/auth/login'
+import register from '@/views/auth/register'
 
 Vue.use(Router)
 
@@ -169,6 +173,28 @@ export default new Router({
       path: '/activity/detail',
       name: 'activityDetail',
       component: activityDetail,
+    },
+    {
+      path: '/demand/detail',
+      name: 'demandDetail',
+      component: demandDetail,
+    },
+    {
+      path: '/auth',
+      name: 'auth',
+      component: auth,
+      children: [
+        {
+          path: '/auth/login',
+          name: 'login',
+          component: login
+        },
+        {
+          path: '/auth/register',
+          name: 'register',
+          component: register
+        },
+      ]
     },
   ]
 })

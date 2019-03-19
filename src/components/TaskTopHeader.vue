@@ -58,10 +58,10 @@
 <style lang="stylus">
 
   #task_top_header
-    position: sticky
+    position: fixed
     width: 100%
-    top: 0
-    z-index: 1
+
+    z-index: 50
     height: 2.7rem
     background-color: #f5f5f5
     padding: 5px

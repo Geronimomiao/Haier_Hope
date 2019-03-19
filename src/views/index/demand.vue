@@ -130,6 +130,7 @@
             background-color: #EBEBEB
             color #8D8D8D
             font-size: 0.8rem
+            border-radius 0.3rem
           .location
             color: #8D8D8D
 

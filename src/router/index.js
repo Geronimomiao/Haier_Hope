@@ -32,6 +32,7 @@ import attention from '@/views/service/attention'
 import newsDetail from '@/views/detail/newDetail'
 import activityDetail from '@/views/detail/activeDetail'
 import demandDetail from '@/views/detail/demandDetail'
+import techDetail from '@/views/detail/techDetail'
 
 import auth from '@/draft/auth'
 import login from '@/views/auth/login'
@@ -178,6 +179,11 @@ export default new Router({
       path: '/demand/detail',
       name: 'demandDetail',
       component: demandDetail,
+    },
+    {
+      path: '/tech/detail',
+      name: 'techDetail',
+      component: techDetail,
     },
     {
       path: '/auth',

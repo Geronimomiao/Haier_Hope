@@ -107,6 +107,7 @@
       border-bottom: 4px solid #EFEFEF
       .el-icon-caret-left
         position: absolute
+        z-index 1000
         top: 0.6rem
         left: 0.7rem
         font-size: 1.2rem

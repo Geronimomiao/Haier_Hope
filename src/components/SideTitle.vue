@@ -25,7 +25,7 @@
 
     .blue
       display: inline-block
-      width: 0.6rem
+      width: 0.5rem
       height: 1rem
       background-color: cornflowerblue
       margin-right: 0.2rem

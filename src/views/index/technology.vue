@@ -21,10 +21,6 @@
           </div>
           <div class="msg-footer">
             <div class="tag">{{item.tags[0]}}</div>
-            <div class="location">
-              <i class="icondidian iconfont"></i>
-              <span>{{item.demandArea}}</span>
-            </div>
           </div>
         </div>
       </div>

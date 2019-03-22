@@ -34,6 +34,9 @@ import activityDetail from '@/views/detail/activeDetail'
 import demandDetail from '@/views/detail/demandDetail'
 import techDetail from '@/views/detail/techDetail'
 import serviceDetail from '@/views/detail/serviceDetail'
+import geniusDetail from '@/views/detail/geniusDetail/geniusDetail'
+
+
 
 import auth from '@/draft/auth'
 import login from '@/views/auth/login'
@@ -190,6 +193,12 @@ export default new Router({
       path: '/service/detail',
       name: 'serviceDetail',
       component: serviceDetail,
+    },
+    {
+      path: '/genius/detail',
+      name: 'geniusDetail',
+      component: geniusDetail,
+
     },
     {
       path: '/auth',

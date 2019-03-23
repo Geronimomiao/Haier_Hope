@@ -21,8 +21,12 @@
     name: "task",
     data() {
       return {
-        data: [],
-
+        data: '',
+        demand: '',
+        tech: '',
+        company: '',
+        news: '',
+        activity: '',
       }
     },
     components: {
@@ -43,13 +47,18 @@
         this.$router.push({path: '/technology'})
       },
       async showData() {
-        await this.axios.get('/api/hope/a/demand/demand/listData').then(res => {
+        await this.axios.get('/api/hope/a/activity/activity/allRecommend').then(res => {
           // this.demand = res.data.list[0]
-          this.data[0] = res.data.list[0]
-          this.data[0].type = '需求推荐'
-          this.data[0].img = res.data.list[0].demandImg
-        })
+          // console.log(res.data)
+          this.data = res.data
+          let news_filter = this.$options.filters['dataFilter']
+          this.demand = news_filter(this.data, 'demandId')
+          this.news = news_filter(this.data, 'newsId')
+          this.activity = news_filter(this.data, 'activityId')
+          this.tech = news_filter(this.data, 'techId')
+          this.company = news_filter(this.data, 'companyId')
 
+        })
         this.show()
       },
       show() {
@@ -58,6 +67,17 @@
           scrollY: true,
         })
       },
+    },
+    filters: {
+      dataFilter(data, avg) {
+        let arr = []
+        data.forEach(item => {
+          if (item.hasOwnProperty(avg)) {
+            arr.push(item)
+          }
+        })
+        return arr
+      }
     }
   }
 </script>
@@ -71,11 +91,13 @@
       bottom: 3.6rem
       width: 100%
       z-index 30
+
       .wrapper-content
         .msg
           padding: 1rem 0.5rem
           height: 6rem
           border-bottom: 10px solid #e5e5e5
+
           .msg-header
             font-size: 0.8rem
 

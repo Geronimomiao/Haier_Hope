@@ -30,7 +30,7 @@
 <style lang="stylus">
   #back_header
     height 2.5rem
-    color #FBFBFC
+
     background-color #6E7483
     i
       font-size 2rem

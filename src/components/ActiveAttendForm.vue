@@ -24,7 +24,7 @@
             </el-form-item>
           </el-form>
           <div class="sub">
-            <el-button type="primary">确认报名</el-button>
+            <el-button type="primary" @click="attend">确认报名</el-button>
           </div>
         </div>
       </el-card>
@@ -34,7 +34,7 @@
 <script>
   export default {
     name: "ActiveAttendForm",
-    props: ['flag'],
+    props: ['flag', 'id'],
     data() {
       return {
         name: '',
@@ -47,6 +47,14 @@
     methods: {
       close() {
         this.$emit('close')
+      },
+      attend() {
+        this.$message({
+          message: '您的报名信息已提交',
+          type: 'success'
+        });
+        this.$emit('close')
+        this.$store.commit('addActivity', this.id)
       }
     }
   }

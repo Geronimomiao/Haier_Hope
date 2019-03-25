@@ -5,10 +5,10 @@
     </back-header>
     <el-form ref="form" :model="form" label-width="80px">
       <el-form-item label="标题:">
-        <el-input v-model="form.name" placeholder="请选择活动区域"></el-input>
+        <el-input v-model="form.name" placeholder="请输入标题"></el-input>
       </el-form-item>
       <el-form-item label="技术方向:">
-        <el-select v-model="form.region" placeholder="请选择活动区域">
+        <el-select v-model="form.dir" placeholder="请选择技术方向">
           <el-option label="减震降噪" value="减震降噪"></el-option>
           <el-option label="新材料应用" value="新材料应用"></el-option>
           <el-option label="传感器" value="传感器"></el-option>
@@ -26,10 +26,10 @@
         </el-select>
       </el-form-item>
       <el-form-item label="技术标签:">
-        <el-input v-model="form.name" placeholder="请选择活动区域"></el-input>
+        <el-input v-model="form.area" placeholder="请输入技术标签"></el-input>
       </el-form-item>
       <el-form-item label="资金来源:">
-        <el-select v-model="form.region" placeholder="请选择资金来源">
+        <el-select v-model="form.funds" placeholder="请选择资金来源">
           <el-option label="科研经费" value="科研经费"></el-option>
           <el-option label="政府资金" value="政府资金"></el-option>
           <el-option label="企业资金" value="企业资金"></el-option>
@@ -38,20 +38,20 @@
         </el-select>
       </el-form-item>
       <el-form-item label="交付形式:">
-        <el-select v-model="form.region" placeholder="请选择交付形式">
+        <el-select v-model="form.type" placeholder="请选择交付形式">
           <el-option label="产品" value="产品"></el-option>
           <el-option label="工艺" value="工艺"></el-option>
           <el-option label="整体方案" value="整体方案"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="专利状态:">
-        <el-select v-model="form.region" placeholder="请选择专利状态">
+        <el-select v-model="form.status" placeholder="请选择专利状态">
           <el-option label="有" value="有"></el-option>
           <el-option label="没有" value="没有"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="合作方式:">
-        <el-select v-model="form.region" placeholder="请选择合作方式">
+        <el-select v-model="form.cor" placeholder="请选择合作方式">
           <el-option label="技术入股" value="技术入股"></el-option>
           <el-option label="技术转让" value="技术转让"></el-option>
           <el-option label="技术服务" value="技术服务"></el-option>
@@ -69,25 +69,20 @@
           <el-input type="textarea" placeholder="请详细描述您的技术方案"></el-input>
         </el-form-item>
       </div>
-      <el-form-item label="附件">
-        <el-input v-model="form.name" placeholder="请选择要上传的附件"></el-input>
-      </el-form-item>
-      <el-form-item label="图片">
-        <el-input v-model="form.name" placeholder="请选择要上传的图片"></el-input>
-      </el-form-item>
       <el-form-item label="联系人">
-        <el-input v-model="form.name" placeholder="请输入联系人姓名"></el-input>
+        <el-input v-model="form.con" placeholder="请输入联系人姓名"></el-input>
       </el-form-item>
       <el-form-item label="邮箱">
-        <el-input v-model="form.name" placeholder="请输入联系人邮箱"></el-input>
+        <el-input v-model="form.email" placeholder="请输入联系人邮箱"></el-input>
       </el-form-item>
       <el-form-item label="联系电话">
-        <el-input v-model="form.name" placeholder="请输入联系人联系方式"></el-input>
+        <el-input v-model="form.phone" placeholder="请输入联系人联系方式"></el-input>
       </el-form-item>
     </el-form>
-    <div class="form-footer">
+    <div class="form-footer" @click="sub">
       提交
     </div>
+
   </div>
 </template>
 
@@ -102,11 +97,31 @@
           name: '',
           region: '',
           desc: '',
+          dir: '',
+          area: '',
+          funds: '',
+          type: '',
+          status: '',
+          cor: '',
+          extra: '',
+          img: '',
+          email: '',
+          phone: '',
         }
       }
     },
     components: {
       BackHeader
+    },
+    methods: {
+      sub() {
+        this.$message({
+          showClose: true,
+          message: '提交成功 请耐心等待审核',
+          type: 'success'
+        });
+        this.$router.push({path: '/'})
+      }
     }
   }
 </script>

@@ -10,7 +10,10 @@ export default  () => {
       flag: 0,
       score: 30,
       record: true,
-      footerFlag: 1
+      footerFlag: 1,
+      activityList: [],
+      demandList: [],
+      newsList: [],
     },
     mutations: {
       updateUserInfo(state, user) {
@@ -25,7 +28,19 @@ export default  () => {
       },
       updateFooterFlag(state, flag) {
         state.footerFlag = flag
-      }
+      },
+      addActivity(state, id) {
+        state.activityList.push(id)
+      },
+      addDemand(state, id) {
+        state.demandList.push(id)
+      },
+      removeDemand(state) {
+        state.demandList.pop()
+      },
+      addNews(state, id) {
+        state.newsList.push(id)
+      },
     }
   })
 }

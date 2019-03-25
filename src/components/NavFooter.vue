@@ -6,7 +6,7 @@
       </div>
       <div class="item" :class="[(footerFlag==2)?'selected':'']" @click="news">
         <span class="el-icon-view"></span>
-        <span>咨讯</span>
+        <span>资讯</span>
       </div>
       <div class="item" :class="[(footerFlag==3)?'selected':'']" @click="activity">
         <span class="el-icon-share"></span>

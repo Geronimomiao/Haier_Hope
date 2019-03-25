@@ -4,9 +4,34 @@
       <span slot="title">找需求</span>
     </top-search>
     <div class="type">
-      <div class="item">需求类型</div>
-      <div class="item">所属领域</div>
-      <div class="item">所在地区</div>
+      <div class="item" @click="type_flag = 1">
+        需求类型
+        <div class="select" v-if="type_flag">
+          <div class="select-item" @click="showData('科技需求', 'type')">科技需求</div>
+          <div class="select-item" @click="showData('营销需求', 'type')">营销需求</div>
+          <div class="select-item" @click="showData('创意需求', 'type')">创意需求</div>
+          <div class="select-item" @click="showData('资金需求', 'type')">资金需求</div>
+        </div>
+      </div>
+      <div class="item" @click="dir_flag = 1">
+        所属领域
+        <div class="select" v-if="dir_flag">
+          <div class="select-item" @click="showData('水处理技术', 'dir')">减震降噪</div>
+          <div class="select-item" @click="showData('新材料应用', 'dir')">新材料应用</div>
+          <div class="select-item" @click="showData('减振降噪', 'dir')">传感器</div>
+          <div class="select-item" @click="showData('流体机械', 'dir')">流体机械</div>
+          <div class="select-item" @click="showData('机械结构设计', 'dir')">机械机构设计</div>
+        </div>
+      </div>
+      <div class="item" @click="area_flag = 1">
+        所在地区
+        <div class="select" v-if="area_flag">
+          <div class="select-item" @click="showData('浙江', 'area')">浙江</div>
+          <div class="select-item" @click="showData('四川', 'area')">四川</div>
+          <div class="select-item" @click="showData('上海', 'area')">上海</div>
+          <div class="select-item" @click="showData('北京', 'area')">北京</div>
+        </div>
+      </div>
     </div>
     <div class="wrapper" ref="wrapper">
       <div class="wrapper-content">
@@ -29,31 +54,45 @@
         </div>
       </div>
     </div>
+    <demand-mask-layer v-if="type_flag | dir_flag | area_flag" @click.native="type_flag = 0"></demand-mask-layer>
   </div>
 </template>
 
 <script>
   import BScroll from 'better-scroll'
   import TopSearch from '../../components/TopSearch'
-
+  import DemandMaskLayer from '../../components/DemandMaskLayer'
   export default {
     name: "demand",
     data() {
       return {
-        data: ''
+        data: '',
+        type_flag: 0,
+        dir_flag: 0,
+        area_flag: 0,
       }
     },
     components: {
-      TopSearch
+      TopSearch,
+      DemandMaskLayer
     },
     mounted() {
-      this.showData()
+      this.showData(0, 0)
     },
     methods: {
-      async showData() {
+      async showData(args, type) {
         await this.axios.get('/api/hope/a/demand/demand/listData').then(res => {
           this.data = res.data.list
           console.log(this.data)
+          if (args) {
+            this.type_flag = 0
+            this.dir_flag = 0
+            this.area_flag = 0
+            let news_filter = this.$options.filters['dataFilter']
+            this.data = news_filter(this.data, args, type)
+            console.log(this.data, args, type)
+          }
+
         })
         this.show()
       },
@@ -70,8 +109,33 @@
             id: id
           }
         })
-      }
+      },
     },
+    filters: {
+      dataFilter(data, avg, type) {
+        let arr = []
+        if (type == 'type') {
+          data.forEach(item => {
+            if (item.demandType == avg) {
+              arr.push(item)
+            }
+          })
+        } else if (type == 'dir') {
+          data.forEach(item => {
+            if (item.demandDirection == avg) {
+              arr.push(item)
+            }
+          })
+        } else if (type == 'area') {
+          data.forEach(item => {
+            if (item.demandArea == avg) {
+              arr.push(item)
+            }
+          })
+        }
+        return arr
+      }
+    }
   }
 </script>
 
@@ -83,12 +147,21 @@
       display: flex
       text-align: center
       border-bottom: 5px solid #eee
-      z-index 50
+      z-index 160
 
       .item
         flex 1
         font-size: 0.8rem
         line-height: 2rem
+        position: relative
+        .select
+          width: 100%
+          position: absolute
+          text-align: center
+          background-color: #fff
+          z-index 80
+          .select-item:hover
+            background-color: #EEEEEE
     .wrapper
       overflow hidden
       position: fixed

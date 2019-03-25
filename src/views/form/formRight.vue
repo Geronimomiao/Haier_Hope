@@ -94,12 +94,6 @@
           <el-input type="textarea" placeholder="请描述您的专利摘要"></el-input>
         </el-form-item>
       </div>
-      <el-form-item label="附件">
-        <el-input v-model="form.name" placeholder="请选择要上传的附件"></el-input>
-      </el-form-item>
-      <el-form-item label="图片">
-        <el-input v-model="form.name" placeholder="请选择要上传的图片"></el-input>
-      </el-form-item>
       <el-form-item label="联系人">
         <el-input v-model="form.name" placeholder="请输入联系人姓名"></el-input>
       </el-form-item>
@@ -110,7 +104,7 @@
         <el-input v-model="form.name" placeholder="请输入联系人联系方式"></el-input>
       </el-form-item>
     </el-form>
-    <div class="form-footer">
+    <div class="form-footer" @click="sub">
       提交
     </div>
   </div>
@@ -132,6 +126,16 @@
     },
     components: {
       BackHeader
+    },
+    methods: {
+      sub() {
+        this.$message({
+          showClose: true,
+          message: '提交成功 请耐心等待审核',
+          type: 'success'
+        });
+        this.$router.push({path: '/'})
+      }
     }
   }
 </script>

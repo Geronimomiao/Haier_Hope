@@ -50,6 +50,7 @@
 <style lang="stylus">
   #login
     #back_header
+      color black
       background-color: #F2F2F2
     .form
       .el-input

@@ -5,7 +5,8 @@
         <i class="el-icon-arrow-left" @click="goback"></i>
       </el-col>
       <el-col :span="2" :offset="16">
-        <i class="el-icon-star-off"></i>
+        <i v-if="fav" class="el-icon-star-off" @click="fav = 0"></i>
+        <i v-else class="el-icon-star-on" @click="fav = 1"></i>
       </el-col>
       <el-col :span="2">
         <i class="iconfont iconfenxiang"></i>
@@ -18,7 +19,9 @@
   export default {
     name: "titleHeader",
     data() {
-      return {}
+      return {
+        fav: 1
+      }
     },
     methods: {
       goback() {

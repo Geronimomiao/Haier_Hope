@@ -24,13 +24,13 @@
     <div class="user-service">
       <div class="title">我的服务</div>
       <div class="func">
-        <div class="item">
+        <div class="item" @click="demand">
           <div class="iconfont iconshuifeichaxun"></div>
           <div class="text">我的需求</div>
         </div>
         <div class="item">
-          <div class="iconfont iconzaixianzixun"></div>
-          <div class="text">我的咨讯</div>
+          <div class="iconfont iconzaixianzixun" @click="news"></div>
+          <div class="text">我的资讯</div>
         </div>
         <div class="item" @click="attention">
           <div class="iconfont iconteam"></div>
@@ -39,26 +39,26 @@
       </div>
       <div class="func">
         <div class="item">
-          <div class="iconfont iconshijian"></div>
+          <div class="iconfont iconshijian" @click="activity"></div>
           <div class="text">我的活动</div>
         </div>
         <div class="item" @click="message">
           <div class="iconfont iconliuyan"></div>
           <div class="text">我的消息</div>
         </div>
-        <div class="item">
+        <div class="item" @click="subscription">
           <div class="iconfont iconlianjie"></div>
           <div class="text">我的订阅</div>
         </div>
       </div>
     </div>
     <div class="user-func">
-      <div class="item" @click="identity">
-        <span class="func">身份认证</span>
+      <div class="item" @click="setting">
+        <span class="func">个人资料</span>
         <i class="el-icon-arrow-right icon-arrow"></i>
       </div>
-      <div class="item" @click="setting">
-        <span class="func">系统设置</span>
+      <div class="item" @click="identity">
+        <span class="func">身份认证</span>
         <i class="el-icon-arrow-right icon-arrow"></i>
       </div>
     </div>
@@ -91,9 +91,26 @@
       attention() {
         this.$router.push({path: '/service/attention'})
       },
+      activity() {
+        this.$router.push({path: '/service/activity'})
+      },
+      demand() {
+        this.$router.push({path: '/service/demand'})
+      },
+      news() {
+        this.$router.push({path: '/service/news'})
+      },
+      subscription() {
+        this.$router.push({path: '/service/subscription'})
+      },
       change() {
         if (!this.record) { return }
         this.$store.commit('increaseScore')
+        this.$message({
+          showClose: true,
+          message: '签到成功 积分加五',
+          type: 'success'
+        });
       },
     }
   }

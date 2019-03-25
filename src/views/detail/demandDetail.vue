@@ -11,8 +11,14 @@
           <div class="attention">
             <div class="time">{{ data.updateDate | timeFilter }}</div>
             <div class="fav">
-              <i class="iconxin1 iconfont"></i>
-              <span>收藏</span>
+              <div v-if="fav" @click="addFav">
+                <i class="iconxin1 iconfont"></i>
+                <span>收藏</span>
+              </div>
+              <div v-else @click="removeFav">
+                <i class="iconxinheart118 iconfont"></i>
+                <span>已收藏</span>
+              </div>
             </div>
           </div>
         </div>
@@ -68,7 +74,8 @@
     name: "demandDetail",
     data() {
       return {
-        data: ''
+        data: '',
+        fav: 1
       }
     },
     components: {
@@ -88,7 +95,15 @@
       },
       goback() {
         this.$router.go(-1)
-      }
+      },
+      addFav() {
+        this.fav = 0
+        this.$store.commit('addDemand', this.$route.params.id)
+      },
+      removeFav() {
+        this.fav = 1
+        this.$store.commit('removeDemand')
+      },
     },
     filters: {
       timeFilter(value) {

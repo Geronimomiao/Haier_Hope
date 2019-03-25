@@ -84,6 +84,7 @@
       z-index 50
 
       .item
+        background-color: #fff
         flex 1
         font-size: 0.8rem
         line-height: 2rem
@@ -94,6 +95,7 @@
       top: 6.4rem
       bottom: 3.5rem
       .msg
+        background-color: #fff
         padding: 1rem 0.5rem
         border-bottom: 5px solid #F4F4F4
         height: 6.5rem

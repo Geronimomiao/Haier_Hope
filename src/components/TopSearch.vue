@@ -27,6 +27,7 @@
     height 4rem
     border-5px(#EEEEEE)
     background-color: #fff
+
     .text
       margin-left: 1rem
       font-size: 1rem

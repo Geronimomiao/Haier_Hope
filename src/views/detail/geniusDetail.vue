@@ -5,8 +5,14 @@
         <i class="el-icon-caret-left"></i>
       </div>
       <div class="fav">
-        <i class="iconfont iconxin1"></i>
-        <span>收藏</span>
+        <div v-if="fav" @click="fav = 0">
+          <i class="iconxin1 iconfont"></i>
+          <span>收藏</span>
+        </div>
+        <div v-else @click="fav = 1">
+          <i class="iconxinheart118 iconfont"></i>
+          <span>已收藏</span>
+        </div>
       </div>
     </div>
     <div class="info">

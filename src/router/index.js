@@ -28,6 +28,10 @@ import wallet from '@/views/service/wallet'
 import setting from '@/views/service/setting'
 import message from '@/views/service/message'
 import attention from '@/views/service/attention'
+import personal_activity from '@/views/service/activity'
+import personal_demand from '@/views/service/demand'
+import personal_news from '@/views/service/news'
+import personal_subscription from '@/views/service/subscription'
 
 import newsDetail from '@/views/detail/newDetail'
 import activityDetail from '@/views/detail/activeDetail'
@@ -166,6 +170,26 @@ export default new Router({
           path: '/service/attention',
           name: 'attention',
           component: attention
+        },
+        {
+          path: '/service/activity',
+          name: 'personal_activity',
+          component: personal_activity
+        },
+        {
+          path: '/service/demand',
+          name: 'personal_demand',
+          component: personal_demand
+        },
+        {
+          path: '/service/news',
+          name: 'personal_news',
+          component: personal_news
+        },
+        {
+          path: '/service/subscription',
+          name: 'personal_subscription',
+          component: personal_subscription
         },
       ]
     },

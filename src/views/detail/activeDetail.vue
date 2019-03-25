@@ -22,7 +22,7 @@
       </transition>
     </div>
     <transition enter-active-class="animated fadeInUp" leave-active-class="animated fadeOutDown">
-        <active-attend-form v-if="flag" :flag="flag" @close="close"></active-attend-form>
+        <active-attend-form v-if="flag" :flag="flag" :id="this.$route.params.id" @close="close"></active-attend-form>
     </transition>
 
   </div>
@@ -50,9 +50,9 @@
       this.showData()
     },
     methods: {
+
       async showData() {
         let id = this.$route.params.id
-        console.log(id)
         await this.axios('/api/hope/a/activity/activity/listData', {params: {activityId: id}}).then(res => {
           console.log(res.data.list)
           this.data = res.data.list

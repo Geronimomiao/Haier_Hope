@@ -10,7 +10,7 @@
         </div>
         <div v-html="item.newsContent" class="msg-text"></div>
         <div class="msg-footer">
-          <el-button type="primary">有帮助(11)</el-button>
+          <el-button type="primary" @click.once="num+=1">有帮助({{num}})</el-button>
         </div>
       </div>
     </div>
@@ -25,7 +25,8 @@
     name: "detail",
     data() {
       return {
-        data: ''
+        data: '',
+        num: 0
       }
     },
     components: {
@@ -48,7 +49,9 @@
           click: true,
           scrollY: true,
         })
+        this.num = Math.round(Math.random()*100)
       },
+
     }
   }
 </script>

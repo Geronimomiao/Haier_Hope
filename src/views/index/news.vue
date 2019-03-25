@@ -3,8 +3,8 @@
     <top-search>
       <span slot="title">看资讯</span>
     </top-search>
-    <div class="wrapper">
-      <ul class="content">
+    <div class="news-wrapper">
+      <ul class="news-content">
         <li @click="getData(0, '')" :class="[(type==0)?'hover':'']">热门</li>
         <li @click="getData(1, '行业政策')" :class="[(type==1)?'hover':'']">行业政策</li>
         <li @click="getData(2, '扶持政策')" :class="[(type==2)?'hover':'']">扶持政策</li>
@@ -100,16 +100,16 @@
 <style lang="stylus">
   @import "../../common/stylus/border.styl"
   #news
-    .wrapper
+    .news-wrapper
       z-index 50
       padding-top: 0.3rem
       border-5px(#EEEEEE)
       background-color: #fff
-      .content::-webkit-scrollbar
+      .news-content::-webkit-scrollbar
         width: 0 !important
         height: 0 !important
 
-      .content
+      .news-content
         display: flex;
         flex-wrap: nowrap;
         justify-content: space-between;
